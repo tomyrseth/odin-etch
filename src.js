@@ -1,19 +1,18 @@
-let selection = 1; //Default value
+let selection = 4; //Default value
 let containerWidth = 960;
 
-
 const container = document.querySelector('.grid-container');
-const btn = document.querySelector('.sButton');
+const btn = document.querySelector('.promptButton');
 
 createSquares();
 addEventsToSquares();
 
-btn.addEventListener("click", (e) => {
+btn?.addEventListener("click", () => {
   do{
     selection = parseInt(window.prompt("How many squares do you want per side?\n (Only numbers from 1 and to 100 are allowed.", ""), 10);
   } while(isNaN(selection) || selection > 100 || selection < 1);
 
-  destroySquares();
+  removeSquares();
   createSquares();
   addEventsToSquares();
 });
@@ -26,16 +25,11 @@ function createSquares(){
   }
 }
 
-function destroySquares(){
-  let squares = selectAllSquares();
+function removeSquares(){
+  let squares = document.querySelectorAll('.div');
   squares.forEach((el) => {
     el.remove();
   });
-}
-
-function selectAllSquares() {
-  let squares = document.querySelectorAll('.div');
-  return squares;
 }
 
 function addEventsToSquares() {
@@ -43,7 +37,6 @@ function addEventsToSquares() {
 
     element.style.flexBasis = containerWidth/selection+'px';
     element.style.height = containerWidth/selection+'px';
-    console.log(element.style.flexBasis);
 
     element.addEventListener('mouseover', (event)=> {
       let randomColor = Math.floor(Math.random()*16777215).toString(16);
