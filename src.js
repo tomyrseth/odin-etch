@@ -6,20 +6,23 @@ const btn = document.querySelector('.promptButton');
 
 createSquares();
 addEventsToSquares();
+addEventToButton()
 
-btn?.addEventListener("click", () => {
-  do{
-    selection = parseInt(window.prompt("How many squares do you want per side?\n (Only numbers from 1 and to 100 are allowed.", ""), 10);
-  } while(isNaN(selection) || selection > 100 || selection < 1);
-
-  removeSquares();
-  createSquares();
-  addEventsToSquares();
-});
+function addEventToButton() {
+  btn?.addEventListener("click", () => {
+    do{
+      selection = parseInt(window.prompt("How many squares do you want per side?\n (Only numbers from 1 and to 100 are allowed.", ""), 10);
+    } while(isNaN(selection) || selection > 100 || selection < 1);
+    
+    removeSquares();
+    createSquares();
+    addEventsToSquares();
+  });
+}
 
 function createSquares(){
   for (let i = 0; i < selection*selection; i++) {
-    let div = document.createElement('div')
+    let div = document.createElement('div');
     div.className = 'div';
     container.appendChild(div);
   }
@@ -33,6 +36,7 @@ function removeSquares(){
 }
 
 function addEventsToSquares() {
+
   document.querySelectorAll('.div').forEach(element => {
 
     element.style.flexBasis = containerWidth/selection+'px';
@@ -44,7 +48,6 @@ function addEventsToSquares() {
       if (!event.target.style.opacity) event.target.style.opacity = 1;
         event.target.style.opacity -= 0.1;
     });
-  
   });
 }
 
