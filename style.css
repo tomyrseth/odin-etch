@@ -16,17 +16,20 @@ h1, p {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 750px;
+  width: 960px;
+  padding: 0px;
+  margin: 0px;
+
 }
 
 .grid-container > div {
   background-color: rgb(170, 170, 170);
-  border-radius: 5px;
-  height: 70px;
-  width: 70px;
-  margin: 1px;
+  border: none;
+  margin: 0px;
   opacity: 1;
   transition: 0.4s ease-out;
+  height: 100px;
+  width: 100px;
 }
 
 .hover {
