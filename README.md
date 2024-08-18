@@ -1,1 +1,3 @@
-Etch-A-Sketch project from The Odin Project.
+Etch-A-Sketch project.
+
+Link: https://tomyrseth.github.io/odin-etch/
